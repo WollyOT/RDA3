@@ -6,7 +6,41 @@
         xmlns:local="clr-namespace:RDA3"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.DataContext>
+        <local:AppViewModel/>
+    </Window.DataContext>
+    <DockPanel>
+        <!--Tools-->
+
+        <Grid DockPanel.Dock="Top" Height="20" Background="{StaticResource BlueGreyGradient}">
+            <!--8 columns-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Button Content="Order" Command="{Binding LoadOrderCommand}"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Button Content="Sales Records" Command="{Binding LoadSalesRecordsCommand}"/>
+            </Grid>
+            
+            <Grid Grid.Column="2">
+                <Button Content="Inventory" Command="{Binding LoadPlannerCommand}"/>
+            </Grid>
+
+            <!--Tool Buttons-->
+        </Grid>
+
+        <!--Content-->
+        <Grid DockPanel.Dock="Bottom">
+            
+            <ContentControl Content="{Binding CurrentView}" />
+        </Grid>
+
+    </DockPanel>
 </Window>
