@@ -1,4 +1,11 @@
-﻿using RDA3.Utilities;
+﻿/*
+* FILE          :   Order.cs
+* PROJECT       :   PROG2111 - Assignment 03
+* PROGRAMMER    :   Paul Smith 
+* FIRST VERSION :   2019-12-07
+* DESCRIPTION   :   Model for the Order object
+*/
+using RDA3.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +56,13 @@ namespace RDA3.Models
         {
             get { return paid; }
             set { OnPropertyChanged(ref paid, value); }
+        }
+
+        private Dictionary<int, Cart> cartContents;
+        public Dictionary<int, Cart> CartContents
+        {
+            get { return cartContents; }
+            set { OnPropertyChanged(ref cartContents, value); }
         }
     }
 }

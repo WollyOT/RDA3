@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
              xmlns:local="clr-namespace:RDA3.Views"
+             xmlns:vm="clr-namespace:RDA3.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <!--<vm:OrderLandingViewModel/>-->
+    </UserControl.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".45*"/>
@@ -163,11 +167,12 @@
                                 Height="25"
                                 Foreground="WhiteSmoke"
                                 Background="#13242C"
-                                Command="{Binding CartVM.CalculateCartTotalCommand}"/>
+                                Command="{Binding GenerateOrderCommand}"/>
                     </Grid>
                 </Grid>
             </Grid>
             
         </Grid>
+        <ContentControl Content="{Binding CurrentView}" />
     </Grid>
 </UserControl>

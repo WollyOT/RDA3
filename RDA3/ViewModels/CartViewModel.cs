@@ -1,4 +1,11 @@
-﻿using RDA3.Models;
+﻿/*
+* FILE          :   CartViewModel.cs
+* PROJECT       :   PROG2111 - Assignment 03
+* PROGRAMMER    :   Paul Smith 
+* FIRST VERSION :   2019-12-07
+* DESCRIPTION   :   View model for the for the cart object
+*/
+using RDA3.Models;
 using RDA3.Utilities;
 using System;
 using System.Collections.Generic;
@@ -70,6 +77,17 @@ namespace RDA3.ViewModels
 
         }
 
+        /*
+        * NAME      :   UpdateCart
+        * PURPOSE	:   Pulls information from selected and set properties in
+        *               Order view to create a new Cart object.
+        * INPUTS    :   
+        *   NONE
+        * OUTPUTS	:
+        *   Stores a cart object in an ObservableCollection
+        * RETURNS	:
+        *   NONE
+        */
         private void UpdateCart()
         {
             Product product = SelectedProduct;
@@ -97,6 +115,18 @@ namespace RDA3.ViewModels
             }             
         }
 
+        /*
+        * NAME      :   CalculateCartTotals
+        * PURPOSE	:   Calculates and updates the Subtotal, HST, and
+        *               the final Total values for the current order
+        *               based on the newly inserted Cart object.
+        * INPUTS    :   
+        *   NONE
+        * OUTPUTS	:
+        *   Stores data into Subtotal, HST and Total fields of Order view.
+        * RETURNS	:
+        *   NONE
+        */
         private void CalculateCartTotals()
         {
             double hstValue = 0.13;
@@ -108,7 +138,7 @@ namespace RDA3.ViewModels
 
                 // Sales total values calculated and updated
                 Subtotal += priceBuffer;
-                Subtotal = Math.Round(Subtotal, 2);
+                Subtotal = Math.Round(Subtotal, 2); //rounded so as to prevent values from becomming unwieldy
                 HST = (Subtotal * hstValue);
                 HST = Math.Round(HST, 2);
                 Total = Subtotal + HST;
@@ -124,6 +154,17 @@ namespace RDA3.ViewModels
             }
         }
 
+        /*
+        * NAME      :   ComlpeteOrder
+        * PURPOSE	:   Pulls value from cart and clears it, for generating
+        *               final order and preparing for next one.
+        * INPUTS    :   
+        *   NONE
+        * OUTPUTS	:
+        *   NONE
+        * RETURNS	:
+        *   List<Cart> cartList : List containing the Cart object for te order
+        */
         public List<Cart> CompleteOrder()
         {
             List<Cart> cartList = new List<Cart>();

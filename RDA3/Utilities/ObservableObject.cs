@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* FILE          :   ObservableObject.cs
+* PROJECT       :   PROG2111 - Assignment 03
+* PROGRAMMER    :   Paul Smith 
+* FIRST VERSION :   2019-12-07
+* DESCRIPTION   :   Model for the ObservableObject object
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -12,24 +19,35 @@ namespace RDA3.Utilities
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary>
-        /// Raises an event to alert client to changed property value
-        /// </summary>
-        /// <param name="property"></param> <b>string</b> - name of property which has been changed
+        /*
+        * NAME      :   OnPropertyChanged
+        * PURPOSE	:   Handles the getting and setting of properties
+        * INPUTS    :   
+        *   string property : name of the property to be changed
+        * OUTPUTS	:
+        *   NONE
+        * RETURNS	:
+        *   NONE
+        */
         // referenced from https://www.youtube.com/watch?v=CQYvjlDoJ08&t=21s
         protected virtual void OnPropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        /// <summary>
-        /// Raises an event to alert client to changed property value. Compares new value to old
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="backing"></param> <b>ref T backingField</b> - field to change
-        /// <param name="value"></param> <b>T value</b> - new value to apply to changed field
-        /// <param name="propertyName"></param> <b>string</b> - name of property which has been changed
-        /// <returns>bool true - if values </returns>
+        /*
+        * NAME      :   OnPropertyChanged
+        * PURPOSE	:   Handles the getting and setting of properties
+        * INPUTS    :   
+        *   ref T backing        : value of the property to be changed
+        *   T value              : new property value
+        *   string propertyName  : property name to be updated
+        * OUTPUTS	:
+        *   NONE
+        * RETURNS	:
+        *   bool False  : if property unchanged
+        *   bool True   : if property changed
+        */
         // referenced from https://www.youtube.com/watch?v=CQYvjlDoJ08&t=21s
         protected virtual bool OnPropertyChanged<T>(ref T backing, T value, [CallerMemberName] string propertyName = "")
         {

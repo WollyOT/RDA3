@@ -1,4 +1,11 @@
-﻿using RDA3.Utilities;
+﻿/*
+* FILE          :   Branch.cs
+* PROJECT       :   PROG2111 - Assignment 03
+* PROGRAMMER    :   Paul Smith 
+* FIRST VERSION :   2019-12-07
+* DESCRIPTION   :   Model for the Branch object
+*/
+using RDA3.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

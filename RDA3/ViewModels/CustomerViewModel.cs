@@ -1,4 +1,11 @@
-﻿using RDA3.Models;
+﻿/*
+* FILE          :   CustomerViewModel.cs
+* PROJECT       :   PROG2111 - Assignment 03
+* PROGRAMMER    :   Paul Smith 
+* FIRST VERSION :   2019-12-07
+* DESCRIPTION   :   View model for the Customer object
+*/
+using RDA3.Models;
 using RDA3.Utilities;
 using System;
 using System.Collections.Generic;
@@ -27,7 +34,19 @@ namespace RDA3.ViewModels
             Customers = new ObservableCollection<Customer>(customerList);
 
         }
-        
+
+        /*
+        * NAME      :   GetCustomers
+        * PURPOSE	:   Calls the GetCustomers function located in
+        *               the PSWally class to populate a list with
+        *               contents of SQL server Branch table.
+        * INPUTS    :   
+        *   NONE
+        * OUTPUTS	:
+        *   NONE
+        * RETURNS	:
+        *   var customerList  : list of customers
+        */
         public List<Customer> GetCustomers()
         {
             var customerList = new PSWally().GetCustomers();

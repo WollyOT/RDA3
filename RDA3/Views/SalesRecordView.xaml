@@ -33,45 +33,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Label Style="{StaticResource DetailLabel}" Content="Select Product" HorizontalAlignment="Center" Margin="10" FontSize="25"/>
-                <Label Content="Search:" 
-                        HorizontalAlignment="Left" 
-                        Margin="20,70,0,0"
-                        VerticalAlignment="Top" 
-                        FontSize="14"/>
-                <ComboBox IsEditable="True"
-                        Width="200"
-                        Height="25"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Margin="80,70,0,0"
-                        IsTextSearchEnabled="True"
-                        x:Name="cb"
-                        ItemsSource="{Binding ProductsVM.Products}"
-                        DisplayMemberPath="ProductName"
-                        SelectedItem="{Binding CartVM.SelectedProduct}"
-                        />
-                <Label Content="Quantity:" 
-                        HorizontalAlignment="Left" 
-                        Margin="300,70,0,0"
-                        VerticalAlignment="Top" 
-                        FontSize="14"/>
-                <TextBox
-                        Text="{Binding CartVM.Quantity, FallbackValue=1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                        Width="30"
-                        Height="25"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Margin="365,70,0,0"                        
-                        />
-                <Button Content="Add to Order"
-                        HorizontalAlignment="Left"
-                        Margin="420,70,0,0"
-                        VerticalAlignment="Top"
-                        Width="100"
-                        Height="25"
-                        Foreground="WhiteSmoke"
-                        Background="#13242C"
-                        Command="{Binding CartVM.UpdateCartCommand}"/>
+               
 
 
             </Grid>
@@ -81,66 +43,7 @@
                         <ColumnDefinition Width="1.85*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Label Style="{StaticResource DetailLabel}" Content="Cart" HorizontalAlignment="Center" Margin="10" FontSize="25"/>
-                        <DataGrid ItemsSource="{Binding CartVM.Cart}"  AutoGenerateColumns="False"   HorizontalAlignment="Stretch" >
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="SKU" Width="Auto" Binding="{Binding ProductSKU}" />
-                                <DataGridTextColumn Header="Product Name" Width="Auto" Binding="{Binding ProductName}" />
-                                <DataGridTextColumn Header="Price" Width="Auto" Binding="{Binding ProductPrice, StringFormat={}{0:C}}" />
-                                <DataGridTextColumn Header="Quantity" Width="Auto" Binding="{Binding Quantity}" />
-                                <DataGridTextColumn Header="Line Total" Width="Auto" Binding="{Binding LinePrice}" />
-                            </DataGrid.Columns >
-                        </DataGrid>
-                    </StackPanel>
-                    <Grid Grid.Column="1">
-                        <Label Style="{StaticResource DetailLabel}" Content="Order Totals" HorizontalAlignment="Center" Margin="10" FontSize="25"/>
-                        <Label Content="Subtotal:" 
-                                HorizontalAlignment="Left" 
-                                Margin="25,50,0,0"
-                                VerticalAlignment="Top" 
-                                FontSize="17"/>
-                        <Label Content="{Binding CartVM.Subtotal, FallbackValue=$0.00, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:C}}"
-                                HorizontalAlignment="Right" 
-                                Margin="0,50,25,0"
-                                VerticalAlignment="Top" 
-                                FontSize="17"
-                                BorderBrush="Black"
-                                BorderThickness="1"/>
-                        <Label Content="HST:" 
-                                HorizontalAlignment="Left" 
-                                Margin="25,100,0,0"
-                                VerticalAlignment="Top" 
-                                FontSize="17"/>
-                        <Label Content="{Binding CartVM.HST, FallbackValue=$0.00, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:C}}"
-                                HorizontalAlignment="Right" 
-                                Margin="0,100,25,0"
-                                VerticalAlignment="Top" 
-                                FontSize="17"
-                                BorderBrush="Black"
-                                BorderThickness="1"/>
-                        <Label Content="Sale Total:" 
-                                HorizontalAlignment="Left" 
-                                Margin="25,155,0,0"
-                                VerticalAlignment="Top" 
-                                FontSize="17"/>
-                        <Label Content="{Binding CartVM.Total, FallbackValue=$0.00, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:C}}"
-                                HorizontalAlignment="Right" 
-                                Margin="0,155,25,0"
-                                VerticalAlignment="Top" 
-                                FontSize="17"
-                                BorderBrush="Black"
-                                BorderThickness="1"/>
-                        <Button Content="Complete Sale"
-                                HorizontalAlignment="Center"
-                                Margin="0,200,0,0"
-                                VerticalAlignment="Top"
-                                Width="100"
-                                Height="25"
-                                Foreground="WhiteSmoke"
-                                Background="#13242C"
-                                Command="{Binding CartVM.CalculateCartTotalCommand}"/>
-                    </Grid>
+                    
                 </Grid>
             </Grid>
 
